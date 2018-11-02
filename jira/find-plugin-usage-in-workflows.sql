@@ -16,4 +16,4 @@ workflowscheme.id = workflowschemeentity.scheme and
 	FROM 
 		jiraworkflows
 	WHERE 
-		jiraworkflows.descriptor like '%googlecode.jira-suite%');
+		jiraworkflows.descriptor like '%googlecode.jira-suite%' or jiraworkflows.descriptor like '%om.onresolve.scriptrun%');
