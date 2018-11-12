@@ -1,0 +1,8 @@
+/*DB: PosgreSQL */
+SELECT s.SPACEKEY FROM CONFLUENCE.SPACEPERMISSIONS sp
+JOIN CONFLUENCE.SPACES s ON s.SPACEID = sp.SPACEID
+JOIN CONFLUENCE.cwd_group g ON sp.PERMGROUPNAME = g.group_name
+JOIN CONFLUENCE.cwd_membership m ON g.id = m.parent_id
+WHERE  g.group_name = 'confluence-users'
+GROUP BY s.SPACEKEY
+ORDER BY s.SPACEKEY;
