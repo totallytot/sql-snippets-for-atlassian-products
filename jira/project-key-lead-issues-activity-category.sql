@@ -1,5 +1,5 @@
 /*Oracle*/
-select 'https://www.epamplw.com/jira/browse/'||b.PKEY as "Link", b.PKEY as "Project Key",  
+select 'https://www.expaple.com/jira/browse/'||b.PKEY as "Link", b.PKEY as "Project Key",  
 count (b.ID) as "Total Issues", to_char(max(a.UPDATED), 'HH24:MI:SS DD/MM/YYYY ') as "Last Activity" from jira.jiraissue a
 join jira.project b
 on a.project = b.ID
