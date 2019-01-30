@@ -15,3 +15,16 @@ join project b
 on a.project = b.ID
 group by b.PKEY
 order by b.PKEY;
+
+/*Mysql + project category*/
+select b.pname "Project Name", b.PKEY "Project Key", b.PROJECTTYPE, prcat.cname "Project Category", b.LEAD, count(b.ID) "Amount of Issues", 
+DATE_FORMAT(min(a.CREATED), '%H:%i:%s %d/%m/%Y') "First Activity",
+DATE_FORMAT(max(a.UPDATED), '%H:%i:%s %d/%m/%Y') "Last Activity" from jiraissue a
+join project b
+on a.project = b.ID
+left join (select * from nodeassociation where ASSOCIATION_TYPE = 'ProjectCategory') pc
+on b.ID = pc.SOURCE_NODE_ID
+left join projectcategory prcat
+on pc.SINK_NODE_ID = prcat.ID
+group by b.PKEY
+order by b.PKEY;
