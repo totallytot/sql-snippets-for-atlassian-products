@@ -27,7 +27,6 @@ cf.cfname as 'Custom Field', 'password' as 'Searched Value', p.lead as 'Project 
 left join jiraissue ji on cfv.issue = ji.id
 left join project p on p.id = ji.project
 left join customfield cf on cf.id = cfv.customfield
-left join changeitem ch on ch.field = cf.cfname 
 where textvalue like '%password%' COLLATE utf8_general_ci or stringvalue like '%password%' COLLATE utf8_general_ci
 group by p.pname, ji.creator, ji.created, ji.updated, cf.cfname, p.lead 
 order by cfv.updated;
