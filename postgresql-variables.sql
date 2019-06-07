@@ -1,4 +1,3 @@
-
 -- Configuration file location
 show config_file;
 
@@ -19,3 +18,6 @@ You would need to increase kernel max segment size to be slightly larger than th
 In file /etc/sysctl.conf set the parameter as shown below. It will take effect when postgresql reboots 
 (The following line makes the kernel max to 96Mb) kernel.shmmax=100663296
 **/
+
+//check connections
+SELECT * FROM pg_stat_activity;
