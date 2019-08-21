@@ -9,3 +9,6 @@ SELECT * FROM information_schema.KEY_COLUMN_USAGE
 WHERE REFERENCED_TABLE_NAME = 'YourTable';
 
 SELECT table_name FROM information_schema.tables WHERE table_name ='Database Name';
+
+-- Data folders
+SHOW VARIABLES WHERE Variable_name LIKE '%dir'
