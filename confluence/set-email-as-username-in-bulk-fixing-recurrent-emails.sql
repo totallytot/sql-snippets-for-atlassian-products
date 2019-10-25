@@ -37,8 +37,9 @@ select * from content where creator in (
 	select user_key from user_mapping where lower_username in (
 		select lower_user_name from user_with_recurrent_email_address));
 -- same as above but for current pages
-select * from content where creator in (select user_key from user_mapping where lower_username in 
-										 (select lower_user_name from user_with_recurrent_email_address))
+select * from content where creator in (
+	select user_key from user_mapping where lower_username in (
+		select lower_user_name from user_with_recurrent_email_address))
 and contenttype = 'PAGE' and SPACEID is not null and CONTENT_STATUS = 'current';
 --  w/t content
 select * from user_mapping where lower_username in (select lower_user_name from user_with_recurrent_email_address)
