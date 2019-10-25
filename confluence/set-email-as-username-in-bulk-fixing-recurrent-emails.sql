@@ -12,7 +12,8 @@ create table cwd_user_credential_record_backup as select * from cwd_user_credent
 create table user_mapping_backup as select * from user_mapping;
 -- in case of restore empty a set of tables and insert data from backuped tables
 -- truncate cwd_user, cwd_membership, cwd_user_attribute, cwd_user_credential_record;
--- dry-run update of usernames (do not perfom real update on this step). You are lucky in case of no errors, proceed with update of user_mapping table (see below)
+-- dry-run update of usernames (do not perfom real update on this step)
+-- in case of no errors, proceed with the update of user_mapping table (see below)
 begin;
 	update cwd_user 
 	set user_name = lower_email_address, lower_user_name = lower_email_address 
@@ -69,5 +70,5 @@ begin;
 rollback;
 -- ERROR:  duplicate key value violates unique constraint "unq_lwr_username"
 -- DETAIL:  Key (lower_username)=(again.blabla@example.com) already exists
--- I simply removed the user from user_cwd table. I assume he would be mapped accordindly in case of account creation with email as username
+-- the user was remodeved. Assumed he would be mapped accordindly in case of account creation with email as username
 -- finally, proceed with update of cwd_user user, drop views and start confluence
