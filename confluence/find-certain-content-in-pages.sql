@@ -17,5 +17,5 @@ on um.user_key = c.CREATOR
 left join user_mapping umm
 on umm.user_key = c.LASTMODIFIER  
 where s.SPACEKEY not in ('SED2', 'SEUD2', 'SELD', 'PUBSELD', 'IWI', 'PB') 
-and c.CONTENTTYPE = 'PAGE' and bc.BODY like '%pswd%' COLLATE utf8_general_ci
+and c.CONTENTTYPE = 'PAGE' and lower(bc.BODY) like '%pswd%'
 order by s.SPACEKEY;
