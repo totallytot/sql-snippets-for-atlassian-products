@@ -6,8 +6,8 @@ and BODY like '%place your content here%'
 order by CONTENTID;
 
 //Mysql
-select CONCAT('https://wiki.example.com/pages/viewpage.action?pageId=', bc.CONTENTID) as 'Link', c.TITLE, s.SPACEKEY, s.SPACENAME, c.CONTENT_STATUS, c.VERSION, 
-um.username as Creator, c.CREATIONDATE, umm.username as 'Last Modifier', c.LASTMODDATE from bodycontent bc
+select CONCAT('https://wiki.example.com/pages/viewpage.action?pageId=', bc.CONTENTID) as 'Link', c.TITLE, s.SPACEKEY, s.SPACENAME, 
+c.CONTENT_STATUS, c.VERSION, um.username as Creator, c.CREATIONDATE, umm.username as 'Last Modifier', c.LASTMODDATE from bodycontent bc
 left join content c 
 on c.CONTENTID = bc.CONTENTID
 left join spaces s
