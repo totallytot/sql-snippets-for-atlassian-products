@@ -1,0 +1,1 @@
+UPDATE BANDANA SET BANDANAVALUE='<map/>' WHERE BANDANAKEY='plugin.manager.state.Map';
